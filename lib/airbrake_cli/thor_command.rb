@@ -9,7 +9,7 @@ module AirbrakeCli
       def pluck(error_id, path="")
          configure!
 
-         parts = path.split(".").map {|x| x.gsub("\\.", ".") }
+         parts = path.gsub("\\.", "\0").split(".").map {|x| x.gsub("\0", ".") }
 
          AirbrakeAPI.notices(error_id).each do |notice|
             # sometimes the api returns a nil notice, not sure why, this guards against that
