@@ -5,7 +5,7 @@ module AirbrakeCli
       include Thor::Actions
 
       desc "pluck error_id path", "retrieves and lists a single attribute from all notices of an error"
-      method_options %w(all -a) => :boolean
+      method_options %w(all -a) => :boolean, :desc => "display all data for an object, not just it's keys"
       def pluck(error_id, path="")
          configure!
 
@@ -31,7 +31,7 @@ module AirbrakeCli
                   puts match.to_s
                when Hashie::Mash
                   if options[:all]
-                     puts match.inspect
+                     puts match.to_hash.inspect
                   else
                      puts match.to_hash.keys.inspect
                   end
