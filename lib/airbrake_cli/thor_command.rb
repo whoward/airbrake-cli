@@ -5,7 +5,7 @@ module AirbrakeCli
       include Thor::Actions
 
       desc "pluck error_id path", "retrieves and lists a single attribute from all notices of an error"
-      method_options %w(all -a) => :boolean, :desc => "display all data for an object, not just it's keys"
+      method_option :all, :type => :boolean, :aliases => "-a", :desc => "display all data for an object, not just it's keys"
       def pluck(error_id, path="")
          configure!
 
