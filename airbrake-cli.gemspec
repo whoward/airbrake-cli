@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir.glob("lib/**/*.rb") + %w(Gemfile Gemfile.lock bin/airbrake)
 
-  s.add_dependency "airbrake-api", "~> 4.1.1"
+  s.add_dependency "airbrake-api", "~> 4.2.2"
   s.add_dependency "thor", ">= 0.16.0"
   s.add_dependency "multi_json", ">= 1.3.6"
 end
